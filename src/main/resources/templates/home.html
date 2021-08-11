@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	
+	<th:block th:insert="fragments/header-fragment.html"/>
+	
+	<link rel="stylesheet" th:href="@{/css/style-home.css}">
+	
+</head>
+<body>
+
+ <div class="container-for-admin">
+		<!--Main Navigation-->
+		<header>
+			<!-- Navbar -->
+			<th:block th:insert="fragments/navbar-fragment.html" />
+			<!-- Navbar -->
+
+			<!-- Sidebar -->
+			<th:block th:insert="fragments/sidebar-fragment.html" />
+			<!-- Sidebar -->
+		</header>
+		<!--Main Navigation-->
+
+		<!--Main layout-->
+		<main class="pt-5 mx-lg-5" style="height: 80vh">
+			<div class="container-fluid mt-5">
+				<div class="h5">Bienvenid@  
+					<th:block th:if="${session.clienteLogin}" th:text="${session.clienteLogin.nombres}"/>
+					<th:block th:if="${session.clienteLogin==null}">An&oacute;nimo</th:block>
+					<div sec:authorize="isAuthenticated()">Logueado</div>
+					
+					<div sec:authorize="hasRole('ROLE_ADMIN')">Rol Banca ADMIN</div>
+					<div sec:authorize="hasRole('ROLE_USER')">Rol Banca USER</div>
+					
+					<div sec:authorize="hasAuthority('ADMIN')">Authority Banca ADMIN</div>
+					<div sec:authorize="hasAuthority('USER')">Authority Banca USER</div>
+				</div>
+			</div>
+		</main>
+		<!--Main layout-->
+		<!--Footer-->
+		<th:block th:insert="fragments/footer-fragment.html" />
+		<!--/.Footer-->
+	</div>
+	
+	 <!-- SCRIPTS -->
+	<th:block th:insert="fragments/resources-js-fragment.html" />
+  	<script type="text/javascript" th:src="@{/js/js-home.js}"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<main class="pt-5 mx-lg-5" style="height: 80vh">
+	<div class="container-fluid mt-5">
+		<div class="h5">Resumen</div>
+
+		  <!-- Alerta -->
+	    <div th:if="${message}" th:text="${message}"class="alert alert-danger mt-2"></div>
+		
+		<div class="card">
+			<div class="card-body">
+				<div class="h4">Tarjetas del cliente</div>
+
+				<a th:href="@{/tarjetas/nuevo}" class="btn btn-success btn-md px-3">
+					<i class="fas fa-plus pr-2" aria-hidden="true"></i> Nueva tarjeta
+				</a>
+
+				<table class="table table-hover" width="100%">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Tarjeta</th>
+							<th scope="col">Fec. Vencimiento</th>
+							<th scope="col">Estado</th>
+							<th scope="col">Opciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="tarjeta : ${cliente.tarjetas}">
+							<th scope="row" th:text="${tarjeta.id}"></th>
+							<td th:text="${tarjeta.numeroTarjeta}"></td>
+							<td th:text="${tarjeta.fechaVencimiento}"></td>
+							<td th:text="${tarjeta.estado}"></td>
+							<td>
+								<a th:href="@{/tarjetas/editar/{id}(id=${tarjeta.id})}"
+									class="btn btn-info btn-sm px-3"> 
+									<i class="fas fa-edit"></i></a> 
+								<a th:onclick="'eliminarTarjeta(\'' + @{/tarjetas/eliminar/{id}(id=${tarjeta.id})} + '\',\''+@{/resumen}+'\')'"
+									class="btn btn-danger btn-sm px-3"> 
+									<i class="fas fa-trash"></i></a>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>#</th>
+							<th>Tarjeta</th>
+							<th>Fec. Vencimiento</th>
+							<th>Estado</th>
+							<th>Opciones</th>
+						<tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</main>
+
+<script type="text/javascript">
+function eliminarTarjeta(urlPost,urlSuccess) {
+	Swal.fire({
+		title: 'Eliminar Tarjeta',
+		html: "Esta operaci&oacute;n no se podr&aacute; revertir",
+		icon : "warning",
+		showCancelButton: true,
+		confirmButtonText: 'S&iacute;, eliminar tarjeta',
+		confirmButtonColor: '#d33',
+		showLoaderOnConfirm: true,
+		preConfirm: () => {
+			return fetch(urlPost, { method: 'POST' })
+		      .then(response => {
+		    	  if (!response.ok) {
+		    		  throw new Error("Ocurrio un error")
+		    	  }
+		    	  return response.json()
+		      })
+		      .catch(error => {
+		    	  Swal.showValidationMessage(error)
+		      })
+		  },
+		allowOutsideClick: () => !Swal.isLoading()
+	}).then((result) => {
+		if (result.value) {
+			Swal.fire({
+				title: "Resultado",
+				text: result.value.message
+			}).then((result) => {
+				window.location = urlSuccess;
+			})
+		}
+	});
+}
+
+</script>

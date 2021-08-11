@@ -1,0 +1,34 @@
+<div class="sidebar-fixed position-fixed">
+
+	<a class="logo-wrapper waves-effect"> <img
+		src="https://mdbootstrap.com/img/logo/mdb-email.png" class="img-fluid"
+		alt>
+	</a>
+
+	<div class="list-group list-group-flush">
+		<a th:href="@{/resumen}" class="list-group-item waves-effect"
+			th:classappend="${modulo == 'resumen' ? 'active' : 'list-group-item-action'}"> 
+			<i class="fa fa-chart-pie mr-3"></i>Resumen
+		</a> 
+		<a th:href="@{/tarjetas}"
+			class="list-group-item list-group-item-action waves-effect"
+			th:classappend="${modulo == 'tarjetas' ? 'active' : 'list-group-item-action'}"> 
+			<i class="fa fa-user mr-3"></i>Tarjetas
+		</a> 
+		<a th:href="@{/cuentas}"
+			class="list-group-item list-group-item-action waves-effect"
+			th:classappend="${modulo == 'cuentas' ? 'active' : 'list-group-item-action'}"> 
+			<i class="fa fa-table mr-3"></i>Cuentas
+		</a> 
+		<a th:href="@{/operaciones}"
+			class="list-group-item list-group-item-action waves-effect"
+			th:classappend="${modulo == 'operaciones' ? 'active' : 'list-group-item-action'}"> 
+			<i class="fa fa-map mr-3"></i>Operaciones
+		</a>
+		<a th:href="@{/login?logout}"
+			class="list-group-item list-group-item-action waves-effect list-group-item-action"> 
+			<i class="fa fa-sign-out-alt mr-3"></i>Cerrar Sesi&oacute;n
+		</a>
+	</div>
+
+</div>

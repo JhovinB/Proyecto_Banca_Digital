@@ -1,0 +1,64 @@
+
+<!--Main layout-->
+<main class="pt-5 mx-lg-5" style="height: 80vh">
+	<div class="container-fluid mt-5">
+		<div class="h5">Nueva Tarjeta</div>
+		<div class="card">
+			<div class="card-body">
+			
+				<form class="needs-validation" novalidate
+						th:action="@{/tarjetas/registrar}"
+						th:object="${tarjetaNueva}"
+						th:method="POST">
+						 
+	                 <!-- Alerta -->
+	                 <div th:if="${message}" th:text="${message}"class="alert alert-danger mt-2">
+	                 </div>
+	                 <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+							<ul class="list list--check" style="margin-block-end: 0;">
+								<li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+							</ul>
+						</div>
+					 <!-- Alerta -->
+
+						<div class="form-row">
+							<div class="col-md-4 mb-3">
+								<label for="validationCustom01">Numero Tarjeta</label> 
+								<input
+									th:field="${tarjetaNueva.numeroTarjeta}"
+									th:classappend="${ #fields.hasErrors('numeroTarjeta') } ? is-invalid"
+									type="text" class="form-control"
+									id="validationCustom01" placeholder="xxxx-xxxx-xxxx-xxxx"
+									required>
+								<div class="invalid-feedback">Ingresa una tarjeta</div>
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="validationCustom02">Fecha Vencimiento</label> 
+								<input
+									th:field="${tarjetaNueva.fechaVencimiento}"
+									th:classappend="${ #fields.hasErrors('fechaVencimiento') } ? is-invalid"
+									type="text" class="form-control" id="validationCustom02"
+									placeholder="dd/MM/yyyy" required>
+								<div class="invalid-feedback">Selecciona una fecha</div>
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="validationCustomUsername">Estado</label> 
+								<select th:field="${tarjetaNueva.estado}"
+								th:classappend="${ #fields.hasErrors('estado') } ? is-invalid"
+								class=" custom-select browser-default" required>
+									<option value="">Seleccionar</option>
+									<option
+										th:each="estado:${T(com.jbac.banca_digital.tarjeta.domain.CardStatusEnum).values()}"
+										th:value="${estado}" th:text="${estado.label}"></option>
+								</select>
+								<div class="invalid-feedback">Seleccione un Estado</div>
+							</div>
+						</div>
+						<button class="btn btn-primary btn-sm" type="submit">Registrar</button>
+						<a class="btn btn-outline-danger btn-sm" th:href="@{/resumen}">Cancelar</a>
+					</form>
+				</div>
+			</div>
+		</div>
+</main>
+<!--Main layout-->
