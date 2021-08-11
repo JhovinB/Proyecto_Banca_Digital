@@ -3,7 +3,7 @@ INSERT INTO public.cliente(nombres, documento, fecha_nacimiento) VALUES ('Kenia 
 INSERT INTO public.cliente(nombres, documento, fecha_nacimiento) VALUES ('Joao GR', '0011223344', '1999-03-16');
 INSERT INTO public.cliente(nombres, documento, fecha_nacimiento) VALUES ('Ruben Perez', '99887766', '1993-10-05');
 INSERT INTO public.cliente(nombres, documento, fecha_nacimiento) VALUES ('Jose Altamirano', '12349876', '1995-06-11');
-INSERT INTO public.cliente(nombres, documento, fecha_nacimiento) VALUES ('Jhovin Bonifacio', '12349876', '1995-06-11');
+INSERT INTO public.cliente(nombres, documento, fecha_nacimiento) VALUES ('Jhovin Bonifacio', '74036639', '1995-06-11');
 
 INSERT INTO public.tarjeta(id_cliente, numero_tarjeta, fecha_vencimiento, estado) VALUES (1, '1111-2222-3333-4444', '2020-12-20', 'ACTIVA');
 INSERT INTO public.tarjeta(id_cliente, numero_tarjeta, fecha_vencimiento, estado) VALUES (2, '1122-2222-3333-4444', '2021-06-27', 'BLOQUEADA');
@@ -15,5 +15,5 @@ INSERT INTO public.tarjeta(id_cliente, numero_tarjeta, fecha_vencimiento, estado
 INSERT INTO public.usuario(id_cliente, clave)VALUES (1,'$2a$10$wNKsq3dZi0ud3wRpzXk1Deao1VUTMp8QlwO/5X2Q/Xj6ESa9TtB2G');
 INSERT INTO public.usuario(id_cliente, clave)VALUES (2,'$2a$10$wNKsq3dZi0ud3wRpzXk1Deao1VUTMp8QlwO/5X2Q/Xj6ESa9TtB2G');
 INSERT INTO public.usuario(id_cliente, clave)VALUES (6,'$2a$10$wNKsq3dZi0ud3wRpzXk1Deao1VUTMp8QlwO/5X2Q/Xj6ESa9TtB2G');
-INSERT INTO public.usuario(id_cliente, clave)VALUES (7,'$2a$10$wNKsq3dZi0ud3wRpzXk1Deao1VUTMp8QlwO/5X2Q/Xj6ESa9TtB2G');
-INSERT INTO public.usuario(id_cliente, clave)VALUES (8,'$2a$10$wNKsq3dZi0ud3wRpzXk1Deao1VUTMp8QlwO/5X2Q/Xj6ESa9TtB2G');
+INSERT INTO public.usuario(id_cliente, clave)VALUES (4,'$2a$10$wNKsq3dZi0ud3wRpzXk1Deao1VUTMp8QlwO/5X2Q/Xj6ESa9TtB2G');
+INSERT INTO public.usuario(id_cliente, clave)VALUES (3,'$2a$10$wNKsq3dZi0ud3wRpzXk1Deao1VUTMp8QlwO/5X2Q/Xj6ESa9TtB2G');
