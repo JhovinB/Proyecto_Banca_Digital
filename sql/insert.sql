@@ -14,6 +14,7 @@ INSERT INTO public.tarjeta(id_cliente, numero_tarjeta, fecha_vencimiento, estado
 
 INSERT INTO public.usuario(id_cliente, clave)VALUES (1,'$2a$10$wNKsq3dZi0ud3wRpzXk1Deao1VUTMp8QlwO/5X2Q/Xj6ESa9TtB2G');
 INSERT INTO public.usuario(id_cliente, clave)VALUES (2,'$2a$10$wNKsq3dZi0ud3wRpzXk1Deao1VUTMp8QlwO/5X2Q/Xj6ESa9TtB2G');
-INSERT INTO public.usuario(id_cliente, clave)VALUES (6,'$2a$10$wNKsq3dZi0ud3wRpzXk1Deao1VUTMp8QlwO/5X2Q/Xj6ESa9TtB2G');
-INSERT INTO public.usuario(id_cliente, clave)VALUES (4,'$2a$10$wNKsq3dZi0ud3wRpzXk1Deao1VUTMp8QlwO/5X2Q/Xj6ESa9TtB2G');
 INSERT INTO public.usuario(id_cliente, clave)VALUES (3,'$2a$10$wNKsq3dZi0ud3wRpzXk1Deao1VUTMp8QlwO/5X2Q/Xj6ESa9TtB2G');
+INSERT INTO public.usuario(id_cliente, clave)VALUES (4,'$2a$10$wNKsq3dZi0ud3wRpzXk1Deao1VUTMp8QlwO/5X2Q/Xj6ESa9TtB2G');
+INSERT INTO public.usuario(id_cliente, clave)VALUES (5,'$2a$10$wNKsq3dZi0ud3wRpzXk1Deao1VUTMp8QlwO/5X2Q/Xj6ESa9TtB2G');
+INSERT INTO public.usuario(id_cliente, clave)VALUES (6,'$2a$10$wNKsq3dZi0ud3wRpzXk1Deao1VUTMp8QlwO/5X2Q/Xj6ESa9TtB2G');

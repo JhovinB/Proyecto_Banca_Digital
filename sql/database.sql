@@ -4,11 +4,11 @@ CREATE DATABASE banca_digital
     ENCODING = 'UTF8'
     CONNECTION LIMIT = -1;
     
-CREATE TABLE public.cliente
+ CREATE TABLE public.cliente
 (
-    id integer NOT NULL DEFAULT nextval('cliente_id_seq'::regclass),
-    nombres character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    documento character varying(15) COLLATE pg_catalog."default" NOT NULL,
+    id serial,
+    nombres character varying(100) NOT NULL,
+    documento character varying(15) NOT NULL,
     fecha_nacimiento date NOT NULL,
     CONSTRAINT cliente_pkey PRIMARY KEY (id),
     CONSTRAINT cliente_uc_documento UNIQUE (documento)
@@ -17,8 +17,10 @@ CREATE TABLE public.cliente
 TABLESPACE pg_default;
 
 ALTER TABLE public.cliente
-    OWNER to postgres;    
-CREATE TABLE public.tarjeta
+    OWNER to postgres;
+
+
+	CREATE TABLE public.tarjeta
 	(
 	    id serial,
 	    id_cliente integer NOT NULL,
@@ -36,7 +38,8 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.tarjeta
     OWNER to postgres;
-    
+
+
  CREATE TABLE public.usuario
 (
     id serial,
@@ -48,5 +51,4 @@ ALTER TABLE public.tarjeta
         ON UPDATE CASCADE
         ON DELETE CASCADE
 )
-TABLESPACE pg_default;
     
