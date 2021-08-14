@@ -85,7 +85,7 @@ public class CardWebController {
 			card.setIdCliente(cli.getId());
 
 			Optional<Card> oCard = cardCreateService.registerCard(card);
-
+			
 			if (oCard.isPresent()) {
 				log.info(oCard.get().toString());
 				resultPage = "redirect:/resumen";
